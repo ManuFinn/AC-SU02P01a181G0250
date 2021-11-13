@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteVuelosa181G0250.Android", "ClienteVuelosa181G0250\ClienteVuelosa181G0250.Android\ClienteVuelosa181G0250.Android.csproj", "{6F1FE01A-8548-4124-831C-4A5A2FD787D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteVuelosa181G0250", "ClienteVuelosa181G0250\ClienteVuelosa181G0250\ClienteVuelosa181G0250.csproj", "{E4D70144-566C-4AF6-9BF8-777F90F66725}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F1FE01A-8548-4124-831C-4A5A2FD787D9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4D70144-566C-4AF6-9BF8-777F90F66725}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31E7BFD7-67A9-4CB7-8454-89658FDFFB9F}
+	EndGlobalSection
+EndGlobal

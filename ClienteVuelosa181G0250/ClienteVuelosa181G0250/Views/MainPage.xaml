@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ClienteVuelosa181G0250.ViewModels"
+             x:Class="ClienteVuelosa181G0250.Views.MainPage" Title="Conectar Servidor" NavigationPage.HasNavigationBar="False" Background="{AppThemeBinding Light=#ffd700, Dark=#393939}">
+    <ContentPage.BindingContext>
+        <vm:ClienteViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame CornerRadius="30" Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}" Margin="75, 315">
+            <Grid>
+                <StackLayout Margin="15" >
+
+                    <Label FontSize="35" Text="URL del servidor" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" 
+                           Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}"/>
+                    <Entry Text="{Binding Url }" 
+                           HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"
+                           Margin="0, 20, 0, 0"/>
+
+
+
+                    <Button Text="Conectar" 
+                        CornerRadius="12" 
+                        Margin="30, 60, 30, 0"
+                        WidthRequest="40"
+                        HeightRequest="45" 
+                        Command="{Binding ConectarCommand}" 
+                        Background="{AppThemeBinding Light=#dbdbdb, Dark=#353535}"
+                        TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+                    <Label Text="{Binding Mensaje}" FontSize="20" FontAttributes="Bold"
+                       TextColor="#ff3030" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="End"
+                       Margin="10, 35, 10, 35"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

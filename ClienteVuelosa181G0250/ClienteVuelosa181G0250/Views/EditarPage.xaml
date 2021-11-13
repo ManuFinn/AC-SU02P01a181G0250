@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ClienteVuelosa181G0250.ViewModels"
+             x:Class="ClienteVuelosa181G0250.Views.EditarPage"
+             NavigationPage.HasNavigationBar="False" Background="{AppThemeBinding Light=#ffd700, Dark=#393939}">
+    <ContentPage.BindingContext>
+        <vm:ClienteViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame CornerRadius="30" Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}" Margin="50, 100">
+            <StackLayout>
+                <Label FontSize="35" Text="Editar vuelo programado" 
+                       Margin="0, 0, 0, 10"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" 
+                           Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.Resources>
+                        <Style TargetType="Frame">
+                            <Setter Property="BackgroundColor" Value="Transparent"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                            <Setter Property="Margin" Value="0,10"/>
+                        </Style>
+                        <Style TargetType="Label">
+                            <Setter Property="HorizontalOptions" Value="Center"/>
+                            <Setter Property="VerticalOptions" Value="Center"/>
+                            <Setter Property="FontSize" Value="25"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Label Grid.Column="0" Text="Hora"/>
+                    <Frame Grid.Column="1"/>
+                    <Label Grid.Column="2" Text="Destino"/>
+                    <Frame Grid.Column="3"/>
+                    <Label Grid.Column="4" Text="Vuelo"/>
+                    <Frame Grid.Column="5"/>
+                    <Label Grid.Column="6" Text="Estado"/>
+                </Grid>
+                <ListView ItemsSource="{Binding Vuelos}" SelectedItem="{Binding VueloSeleccionado}" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame Padding="1" Margin="2.5,5" CornerRadius="5"
+                                       Background="{AppThemeBinding Light=#dbdbdb, Dark=#393939}">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="6"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="6"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="6"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.Resources>
+                                            <Style TargetType="Frame">
+                                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+                                                <Setter Property="CornerRadius" Value="10"/>
+                                                <Setter Property="Margin" Value="0,10"/>
+                                            </Style>
+                                            <Style TargetType="Label">
+                                                <Setter Property="HorizontalOptions" Value="Center"/>
+                                                <Setter Property="VerticalOptions" Value="Center"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Label Grid.Column="0" Text="{Binding Hora}" 
+                                           FontAttributes="Bold"
+                                           FontSize="Large"
+                                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+                                        <Frame Grid.Column="1"/>
+                                        <Label Grid.Column="2" Text="{Binding Destino}"/>
+                                        <Frame Grid.Column="3"/>
+                                        <Label Grid.Column="4" Text="{Binding Vuelo}"/>
+                                        <Frame Grid.Column="5"/>
+                                        <Label x:Name="estadito" Grid.Column="6" 
+                                               FontAttributes="Bold"
+                                               FontSize="14"
+                                               Text="{Binding Estado}">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference estadito},Path=Text}" Value="A TIEMPO">
+                                                    <Setter Property="TextColor" Value="{AppThemeBinding Light=#000000, Dark=#ffd700}"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference estadito},Path=Text}"  Value="CANCELADO">
+                                                    <Setter Property="TextColor" Value="#DF0000"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference estadito},Path=Text}"  Value="RETRASADO">
+                                                    <Setter Property="TextColor" Value="#f3a500"/>
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference estadito},Path=Text}"  Value="ABORDANDO">
+                                                    <Setter Property="TextColor" Value="#ADE037"/>
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Entry Placeholder="Destino" Text="{Binding Destinox}"/>
+                <Picker SelectedItem="{Binding Estadox}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>A TIEMPO</x:String>
+                            <x:String>ABORDANDO</x:String>
+                            <x:String>CANCELADO</x:String>
+                            <x:String>RETRASADO</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                
+                <Button Text="Editar vuelo"
+                        CornerRadius="12" 
+                        Margin="30, 10, 30, 0"
+                        WidthRequest="40"
+                        HeightRequest="45" 
+                        Background="{AppThemeBinding Light=#dbdbdb, Dark=#353535}"
+                        TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"
+                        Command="{Binding EditarVuelo}"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

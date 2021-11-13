@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ClienteVuelosa181G0250.ViewModels"
+             x:Class="ClienteVuelosa181G0250.Views.AgregarPage" NavigationPage.HasNavigationBar="False" Background="{AppThemeBinding Light=#ffd700, Dark=#393939}">
+    <ContentPage.BindingContext>
+        <vm:ClienteViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <Frame CornerRadius="30" Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}" Margin="75, 300">
+            <StackLayout>
+                <StackLayout.Resources>
+                    <Style TargetType="Entry">
+                        <Setter Property="TextColor" Value="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+
+                    </Style>
+                </StackLayout.Resources>
+                <Label FontSize="35" Text="Programar vuelo nuevo" 
+                       Margin="0, 0, 0, 10"
+                           HorizontalTextAlignment="Center"
+                           TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}" 
+                           Background="{AppThemeBinding Light=#FFFFFF, Dark=#696969}"/>
+                <Entry Placeholder="Vuelo" Text="{Binding Vuelox}"/>
+                <Entry Placeholder="Destino" Text="{Binding Destinox}"/>
+                <Picker SelectedItem="{Binding Estadox}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>A TIEMPO</x:String>
+                            <x:String>ABORDANDO</x:String>
+                            <x:String>CANCELADO</x:String>
+                            <x:String>RETRASADO</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <TimePicker Format="hh:mm:tt" Time="{Binding Spa}"/>
+                <Button Text="Agregar vuelo" 
+                        CornerRadius="12" 
+                        Margin="35, 40, 35, 0"
+                        Command="{Binding AgregarVuelo}"
+                        Background="{AppThemeBinding Light=#dbdbdb, Dark=#353535}"
+                        TextColor="{AppThemeBinding Light=#000000, Dark=#FFFFFF}"/>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>
